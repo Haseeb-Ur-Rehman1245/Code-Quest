@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 44% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 44% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 25 95% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 185 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 222 30% 16%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 262 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 25 95% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 44% 8%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 25 95% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 30% 14%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 222 30% 16%;
+    --sidebar-ring: 25 95% 55%;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(25 95% 55%), hsl(35 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(185 70% 45%), hsl(195 80% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(262 80% 60%), hsl(280 85% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 6%), hsl(222 44% 12%), hsl(262 30% 15%));
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.08), hsla(0 0% 100% / 0.02));
+    --shadow-glow-primary: 0 0 40px hsla(25, 95%, 55%, 0.3);
+    --shadow-glow-secondary: 0 0 40px hsla(185, 70%, 45%, 0.3);
+    --shadow-glow-accent: 0 0 40px hsla(262, 80%, 60%, 0.3);
+    --glass-bg: hsla(222, 44%, 12%, 0.6);
+    --glass-border: hsla(0, 0%, 100%, 0.08);
+
+    /* XP/Level colors */
+    --xp: 45 100% 55%;
+    --streak: 15 90% 55%;
+    --success: 145 70% 45%;
+    --info: 210 90% 60%;
+  }
+
+  .light {
+    --background: 0 0% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 25 95% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 185 70% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 262 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 25 95% 50%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 20%;
+    --sidebar-primary: 25 95% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 94%;
+    --sidebar-accent-foreground: 222 47% 20%;
+    --sidebar-border: 220 13% 88%;
+    --sidebar-ring: 25 95% 50%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 97%), hsl(220 14% 95%), hsl(262 20% 95%));
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 0% / 0.03), hsla(0 0% 0% / 0.01));
+    --shadow-glow-primary: 0 0 40px hsla(25, 95%, 50%, 0.15);
+    --shadow-glow-secondary: 0 0 40px hsla(185, 70%, 40%, 0.15);
+    --shadow-glow-accent: 0 0 40px hsla(262, 80%, 55%, 0.15);
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(0, 0%, 0%, 0.08);
+
+    --xp: 45 100% 45%;
+    --streak: 15 90% 50%;
+    --success: 145 70% 38%;
+    --info: 210 90% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .gradient-text-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-bg-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-bg-accent {
+    background: var(--gradient-accent);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-animation-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .floating-animation-slow {
+    animation: float 8s ease-in-out infinite 1s;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(2deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
